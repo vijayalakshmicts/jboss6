@@ -5,7 +5,7 @@ FROM jboss/base-jdk:7
 ENV JBOSS6_VERSION 6.0.1.FINAL
 ENV JBOSS_HOME /opt/jboss6
 
-# Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
+# Add the Jboss6 download in the path
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
     && curl -O https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download \
