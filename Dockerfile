@@ -9,7 +9,7 @@ ENV JBOSS_HOME /opt/jboss6
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
     && curl -O https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download \
-    && unzip -q jboss-as-distribution-6.0.0.Final.zip \
+    && unzip -q jboss-as-distribution-6.0.0.Final \
     && mv $HOME/jboss6.0.1-Final $JBOSS_HOME \
     && rm jboss-as-distribution-6.0.0.Final.zip
 
