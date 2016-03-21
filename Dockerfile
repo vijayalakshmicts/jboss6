@@ -9,18 +9,6 @@ ENV JBOSS_HOME /opt/jboss6
 # Make sure the distribution is available from a well-known place
 
 RUN cd /tmp && curl -O https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download 
-RUN cd /tmp && unzip -q jboss-as-distribution-6.0.0.Final.zip
-RUN mv jboss-as-distribution-6.0.0.Final /usr/jboss6.0.1-Final 
-RUN rm jboss-as-distribution-6.0.0.Final.zip
 
-# Ensure signals are forwarded to the JVM process correctly for graceful shutdown
-ENV LAUNCH_JBOSS_IN_BACKGROUND true
-
-# Expose the ports we're interested in
-EXPOSE 8080
-
-# Set the default command to run on boot
-# This will boot jboss
-CMD ["/opt/jboss6/jboss-as-distribution-6.0.0.Final/bin/run.", "-b", "0.0.0.0"]
 
 
