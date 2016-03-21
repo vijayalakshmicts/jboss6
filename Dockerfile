@@ -7,9 +7,9 @@ ENV JBOSS_HOME /opt/jboss6
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
-RUN cd $tmp \
-    && curl -O https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download \
-    && unzip -q jboss-as-distribution-6.0.0.Final \
+RUN cd /tmp
+RUN wget https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download
+     && unzip -q jboss-as-distribution-6.0.0.Final \
     && mv $usr/local/jboss6.0.1-Final $JBOSS_HOME \
     && rm jboss-as-distribution-6.0.0.Final.zip
 
