@@ -3,13 +3,13 @@ FROM jboss/base-jdk:7
 
 # Set the Jboss7 Environment variable env variable
 ENV JBOSS6_VERSION 6.0.1.FINAL
-ENV JBOSS_HOME /opt/jboss6.0.1-Final
+ENV JBOSS_HOME /opt/jboss6
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
     && curl -O https://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download \
-    && tar xf jboss-as-distribution-6.0.0.Final.zip \
+    && unzip -q jboss-as-distribution-6.0.0.Final.zip \
     && mv $HOME/jboss6.0.1-Final $JBOSS_HOME \
     && rm jboss-as-distribution-6.0.0.Final.zip
 
@@ -21,4 +21,4 @@ EXPOSE 8080
 
 # Set the default command to run on boot
 # This will boot jboss
-CMD ["/opt/jboss6.0.1-Final/bin/run.", "-b", "0.0.0.0"]
+CMD ["/opt/jboss6/jboss-as-distribution-6.0.0.Final/bin/run.", "-b", "0.0.0.0"]
