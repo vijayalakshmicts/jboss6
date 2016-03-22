@@ -1,19 +1,20 @@
 # Use latest jboss/base-jdk:7 image as the base
 FROM jboss/base-jdk:7
 
-# Set the Jboss7 Environment variable env variable
-ENV JBOSS6_VERSION 6.0.1.FINAL
-ENV JBOSS_HOME /opt/jboss6
 
-# Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
-# Make sure the distribution is available from a well-known place
+# Download the File
+RUN cd $HOME && curl -O http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip && unzip jboss-as-distribution-6.1.0.Final.zip && mv $HOME/jboss-as-distribution-6.1.0.Final.zip $HOME/Jboss6 && rm jboss-as-distribution-6.1.0.Final.zip
 
-RUN cd /usr/bin 
-RUN wget -O ~/jboss-as-distribution-6.0.0.Final.zip http://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download
-RUN sudo unzip ~/jboss-as-distribution-6.0.0.Final.zip -d /usr/local/
-RUN sudo chown -R jboss:jboss /usr/local/jboss-6.0.0.Final/
-RUN sudo rm -rf /usr/local/jboss
-RUN sudo ln -s /usr/local/jboss-6.0.0.Final /usr/local/jboss
+#Environment Variable
+ENV JBOSS_HOME /opt/jboss/jboss6
+
+#Expose
+EXPOSE 8080 9990
+
+#CMD to run
+CMD /opt/jboss/jboss6/bin/run.sh -b 0.0.0.0
+
+
 
 
 
