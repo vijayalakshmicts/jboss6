@@ -9,10 +9,8 @@ ENV JBOSS_HOME /opt/jboss6
 # Make sure the distribution is available from a well-known place
 
 RUN curl -o ~/jboss-as-distribution-6.0.0.Final.zip http://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download
-RUN sudo unzip ~/jboss-as-distribution-6.0.0.Final.zip -d /usr/local/
-RUN sudo chown -R jboss:jboss /usr/local/jboss-6.0.0.Final/
-RUN sudo rm -rf /usr/local/jboss
-RUN sudo ln -s /usr/local/jboss-6.0.0.Final /usr/local/jboss
+RUN unzip ~/jboss-as-distribution-6.0.0.Final.zip -d /usr/local/jboss6/
+
 
 
 
