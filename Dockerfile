@@ -5,7 +5,7 @@ FROM jboss/base-jdk:7
 ENV JBOSS_HOME /opt/jboss/jboss6
 
 # Download the File
-RUN cd $HOME && curl -O http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip && unzip jboss-as-distribution-6.1.0.Final.zip && mv $HOME/jboss-as-distribution-6.1.0.Final $JBOSS_HOME && rm jboss-as-distribution-6.1.0.Final.zip
+RUN cd $HOME && curl -O http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip && unzip jboss-as-distribution-6.1.0.Final.zip && mv $HOME/jboss-6.1.0.Final $JBOSS_HOME && rm jboss-as-distribution-6.1.0.Final.zip
 
 
 
