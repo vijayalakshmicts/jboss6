@@ -12,7 +12,7 @@ RUN cd $HOME && curl -O http://download.jboss.org/jbossas/6.1/jboss-as-distribut
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 #Expose
-EXPOSE 8080 
+EXPOSE 9090 
 
 #CMD to run
 CMD ["/opt/jboss/jboss6/bin/run.sh", "-b", "0.0.0.0"]
